@@ -1,0 +1,26 @@
+
+<% include partials/header %>
+   <h1>Add Contacts</h1>
+   <form method = "POST" action= "/users/add" >
+   <label>First name:</label><br>
+   <input type="text" name="first_name" required title="It is Required">
+   <br>
+   <label>Last name:</label><br>
+   <input type="text" name="last_name" required title="It is Required">
+    <br>
+    <label>Phone:</label><br>
+   <input type= "tel" name="Phone_no" required pattern="[0-9]{10}" title="write 10 digit format">
+   <br><br>
+   <input type="submit" value="Submit"  >
+   </form> 
+   <h1> <%= title %> </h1>
+<table class="table table-striped">
+<ul>
+   <% users.forEach(function(user){ %>
+    <li> <%= user.first_name %> <%= user.last_name %> &nbsp;- <%= user.Phone_no %></li>-<a href="#" class="deleteUser" data-id="<%= user._id %>">Delete</a>
+            
+<% }) %>
+</ul>
+    </table>
+
+<% include partials/footer %>
